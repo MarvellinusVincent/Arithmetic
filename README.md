@@ -31,10 +31,10 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-SafeArgs was challenging as I did not fully understand it
-At first I didn't use fragments which made it very confusing
-Did not know if answers should be in 2 decimal places or as an integer but I decided to just use integer at the end
-Everything else went smoothly
+1. SafeArgs was challenging as I did not fully understand it
+2. At first I didn't use fragments which made it very confusing
+3. I did not know if answers should be in 2 decimal places or as an integer but I decided to just use integer at the end
+4. Everything else went smoothly
 
 ## License
 
