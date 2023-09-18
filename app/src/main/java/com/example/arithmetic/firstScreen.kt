@@ -27,19 +27,38 @@ class firstScreen : Fragment() {
     private var numQuestions = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        /**
+         * Inflate the layout for this fragment
+         */
         val view = inflater.inflate(R.layout.fragment_first_screen, container, false)
+
+        /**
+         * Initialize UI elements
+         */
         difficultyRadioGroup = view.findViewById(R.id.Difficulty)
         operationRadioGroup = view.findViewById(R.id.Operation)
         minusRadioButton = view.findViewById(R.id.Minus)
         plusRadioButton = view.findViewById(R.id.Plus)
         numQuestionsTextView = view.findViewById(R.id.textViewCount)
+
+        /**
+         * Set default radio button selections
+         */
         operationRadioGroup.check(R.id.Addition)
         difficultyRadioGroup.check(R.id.Easy)
+
+        /**
+         * Load an image using Picasso library
+         */
         val imageView = view.findViewById<ImageView>(R.id.firstPicture)
         val imageUrl = "https://pi.tedcdn.com/r/talkstar-assets.s3.amazonaws.com/production/playlists/playlist_251/hated_math_1200x627.jpg?c=1050%2C550&w=1050"
         Picasso.get()
             .load(imageUrl)
             .into(imageView)
+
+        /**
+         * Define click listeners for buttons
+         */
         val startButton = view.findViewById<RadioButton>(R.id.Start)
         minusRadioButton.setOnClickListener {
             if (numQuestions > 0) {
@@ -51,11 +70,20 @@ class firstScreen : Fragment() {
             numQuestions++
             numQuestionsTextView.text = "$numQuestions"
         }
+
         startButton.setOnClickListener {
+            /**
+             * Get selected options
+             */
             val selectedDifficulty = difficultyRadioGroup.findViewById<RadioButton>(difficultyRadioGroup.checkedRadioButtonId).text.toString()
             val selectedOperation = operationRadioGroup.findViewById<RadioButton>(operationRadioGroup.checkedRadioButtonId).text.toString()
             val numQuestionsChosen = numQuestionsTextView.text.toString().toInt()
+
             if (numQuestionsChosen > 0) {
+                /**
+                 * Check if a valid number of questions is chosen
+                 * Navigate to the QuestionsScreen fragment with selected options
+                 */
                 val action = firstScreenDirections.actionFirstScreenToQuestionsScreen(
                     selectedDifficulty,
                     selectedOperation,

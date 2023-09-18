@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- This XML defines a ConstraintLayout for the questionsScreen activity layout. -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,6 +9,7 @@
     android:background="#e2e2e2"
     tools:context=".questionsScreen">
 
+    <!-- Text view for the what is text -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,6 +18,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_of_whatIs"
         app:layout_constraintLeft_toLeftOf="@id/left_of_margin" />
 
+    <!-- Text view for the first random number -->
     <TextView
         android:id="@+id/firstNumber"
         android:layout_width="wrap_content"
@@ -25,6 +28,7 @@
         app:layout_constraintTop_toTopOf="@id/bottom_of_whatIs"
         app:layout_constraintBottom_toTopOf="@id/bottom_of_question"/>
 
+    <!-- Text view for the operation -->
     <TextView
         android:id="@+id/Operation"
         android:layout_width="wrap_content"
@@ -36,6 +40,7 @@
         app:layout_constraintLeft_toLeftOf="@id/left_of_operation"
         app:layout_constraintRight_toLeftOf="@id/right_of_operation"/>
 
+    <!-- Text view for the second random number -->
     <TextView
         android:id="@+id/secondNumber"
         android:layout_width="wrap_content"
@@ -46,6 +51,7 @@
         app:layout_constraintRight_toLeftOf="@id/right_of_margin"
         app:layout_constraintBottom_toTopOf="@id/bottom_of_question"/>
 
+    <!-- Edit text for the user to input their answer -->
     <EditText
         android:id="@+id/UserText"
         android:layout_width="wrap_content"
@@ -58,6 +64,7 @@
         app:layout_constraintLeft_toLeftOf="@id/left_of_Done"
         app:layout_constraintRight_toRightOf="@id/right_of_Done" />
 
+    <!-- Button for the done that takes the user to the finish screen or the next question -->
     <RadioButton
         android:id="@+id/Done"
         android:layout_width="0dp"
@@ -72,6 +79,7 @@
         app:layout_constraintRight_toRightOf="@id/right_of_Done"
         app:layout_constraintTop_toTopOf="@+id/bottom_of_yourAnswer" />
 
+    <!-- Image of the picture -->
     <ImageView
         android:id="@+id/secondPicture"
         android:layout_width="wrap_content"
@@ -83,6 +91,7 @@
 
     </ImageView>
 
+    <!-- Bottom of whatIs text horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom_of_whatIs"
         android:layout_width="wrap_content"
@@ -90,6 +99,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.23" />
 
+    <!-- Left of done button vertical constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/left_of_Done"
         android:layout_width="wrap_content"
@@ -97,6 +107,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.08" />
 
+    <!-- Right of done button vertical constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/right_of_Done"
         android:layout_width="wrap_content"
@@ -104,6 +115,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.92" />
 
+    <!-- Bottom of done button horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom_of_Done"
         android:layout_width="wrap_content"
@@ -111,6 +123,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.70" />
 
+    <!-- Bottom of yourAnswer horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom_of_yourAnswer"
         android:layout_width="wrap_content"
@@ -118,6 +131,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.62" />
 
+    <!-- Bottom of question horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom_of_question"
         android:layout_width="wrap_content"
@@ -125,6 +139,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.35" />
 
+    <!-- Left of margin vertical constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/left_of_margin"
         android:layout_width="wrap_content"
@@ -132,6 +147,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.03" />
 
+    <!-- Right of margin vertical constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/right_of_margin"
         android:layout_width="wrap_content"
@@ -139,6 +155,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.97" />
 
+    <!-- Left of operation text vertical constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/left_of_operation"
         android:layout_width="wrap_content"
@@ -146,6 +163,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.45" />
 
+    <!-- Right of operation text vertical constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/right_of_operation"
         android:layout_width="wrap_content"

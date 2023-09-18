@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- This XML defines a ConstraintLayout for the finishScreen activity layout. -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +8,7 @@
     android:background="#e2e2e2"
     tools:context=".finishScreen">
 
+    <!-- You scored Text View -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,6 +18,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
+    <!-- Text view to show user their score -->
     <TextView
         android:id="@+id/showUser"
         android:layout_width="wrap_content"
@@ -27,6 +30,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
+    <!-- Button that goes back tot the firstScreen layout. -->
     <RadioButton
         android:id="@+id/doItAgain"
         android:layout_width="match_parent"
@@ -40,7 +44,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bottom_of_score"/>
 
-
+    <!-- Bottom of youScore text horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom_of_youScore"
         android:layout_width="wrap_content"
@@ -48,6 +52,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.45" />
 
+    <!-- Bottom of the score the user gets horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom_of_score"
         android:layout_width="wrap_content"

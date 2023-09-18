@@ -29,26 +29,52 @@ class questionsScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        /**
+         * Inflate the layout for this fragment
+         */
         val view = inflater.inflate(R.layout.fragment_questions_screen, container, false)
+
+        /**
+         * Load an image using Picasso library
+         */
         val imageView = view.findViewById<ImageView>(R.id.secondPicture)
         val imageUrl = "https://pi.tedcdn.com/r/talkstar-assets.s3.amazonaws.com/production/playlists/playlist_251/hated_math_1200x627.jpg?c=1050%2C550&w=1050"
         Picasso.get()
             .load(imageUrl)
             .into(imageView)
+
+        /**
+         * Retrieve arguments from the navigation
+         */
         val difficulty = questionsScreenArgs.fromBundle(requireArguments()).difficulty
         val operation = questionsScreenArgs.fromBundle(requireArguments()).operation
         val numQuestions = questionsScreenArgs.fromBundle(requireArguments()).numQuestions
+
+        /**
+         * Initialize UI elements
+         */
         val userAnswer = view.findViewById<EditText>(R.id.UserText)
         firstNum = view.findViewById(R.id.firstNumber)
         operand = view.findViewById(R.id.Operation)
         secondNum = view.findViewById(R.id.secondNumber)
+
+        /**
+         * Generate and display the first question
+         */
         if (numQuestions > 0) {
             firstNum.text = getRandomNumber(difficulty)
             operand.text = getOperation(operation)
             secondNum.text = getRandomNumber(difficulty)
         }
+
+        /**
+         * Define click listener for the "Done" button
+         */
         val doneButton = view.findViewById<RadioButton>(R.id.Done)
         doneButton.setOnClickListener {
+            /**
+             * Check if we should move to the next page and also check if the user inputs anything
+             */
             if (currentQuestion < numQuestions && userAnswer.text.toString().trim().isNotEmpty()) {
                 val firstNumText = firstNum.text.toString()
                 val operandText = operand.text.toString()
@@ -58,6 +84,10 @@ class questionsScreen : Fragment() {
                 if (correctAns == userAnswerText) {
                     numCorrectAnswers ++
                 }
+
+                /**
+                 * Generate and display the next question
+                 */
                 firstNum.text = getRandomNumber(difficulty)
                 operand.text = getOperation(operation)
                 secondNum.text = getRandomNumber(difficulty)
@@ -71,6 +101,10 @@ class questionsScreen : Fragment() {
                 if (correctAns == userAnswerText) {
                     numCorrectAnswers ++
                 }
+
+                /**
+                 * Navigate to the finish screen with the results
+                 */
                 val action = questionsScreenDirections.actionQuestionsScreenToFinishScreen(numCorrectAnswers, numQuestions)
                 view.findNavController().navigate(action)
             }
@@ -78,7 +112,9 @@ class questionsScreen : Fragment() {
         return view
     }
 
-
+    /**
+     * Function for getting a random number based on the difficulty
+     */
     private fun getRandomNumber(difficulty: String): String {
         val randomNumber = when(difficulty) {
             "Easy" -> Random.nextInt(11)
@@ -89,6 +125,9 @@ class questionsScreen : Fragment() {
         return randomNumber.toString()
     }
 
+    /**
+     * Function for getting the operation and converting it to a text
+     */
     private fun getOperation(operation: String): String {
         val operand = when(operation) {
             "Addition" -> "+"
@@ -100,6 +139,9 @@ class questionsScreen : Fragment() {
         return operand
     }
 
+    /**
+     * Function for calculating the correct answer
+     */
     private fun correctAnswer(firstNumber: String, operation: String, secondNumber: String): Int {
         val num1 = firstNumber.toInt()
         val num2 = secondNumber.toInt()

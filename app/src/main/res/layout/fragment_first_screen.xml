@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- This XML defines a ConstraintLayout for the firstScreen activity layout. -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,6 +9,7 @@
     android:background="#e2e2e2"
     tools:context=".firstScreen">
 
+    <!-- Shows the image -->
     <ImageView
         android:id="@+id/firstPicture"
         android:layout_width="wrap_content"
@@ -19,6 +21,7 @@
 
     </ImageView>
 
+    <!-- Shows the select difficulty text -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,6 +32,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bottom_of_picture" />
 
+    <!-- Shows the select operation text -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,6 +43,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/middle_of_page"
         app:layout_constraintTop_toTopOf="@+id/bottom_of_picture" />
 
+    <!-- Group for the buttons for the difficulty choosing -->
     <RadioGroup
         android:id="@+id/Difficulty"
         android:layout_width="wrap_content"
@@ -47,6 +52,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bottom_of_selects">
 
+        <!-- Easy button -->
         <RadioButton
             android:id="@+id/Easy"
             android:layout_width="wrap_content"
@@ -54,6 +60,7 @@
             android:text="Easy"
             android:textSize="16sp" />
 
+        <!-- Medium button -->
         <RadioButton
             android:id="@+id/Medium"
             android:layout_width="wrap_content"
@@ -61,6 +68,7 @@
             android:text="Medium"
             android:textSize="16sp" />
 
+        <!-- Hard button -->
         <RadioButton
             android:id="@+id/Hard"
             android:layout_width="wrap_content"
@@ -70,6 +78,7 @@
 
     </RadioGroup>
 
+    <!-- Group for the buttons for the operation choosing -->
     <RadioGroup
         android:id="@+id/Operation"
         android:layout_width="wrap_content"
@@ -78,6 +87,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/middle_of_page"
         app:layout_constraintTop_toTopOf="@+id/bottom_of_selects">
 
+        <!-- Addition button -->
         <RadioButton
             android:id="@+id/Addition"
             android:layout_width="wrap_content"
@@ -85,6 +95,7 @@
             android:text="Addition"
             android:textSize="16sp" />
 
+        <!-- Multiplication button -->
         <RadioButton
             android:id="@+id/Multiplication"
             android:layout_width="wrap_content"
@@ -92,6 +103,7 @@
             android:text="Multiplication"
             android:textSize="16sp" />
 
+        <!-- Division button -->
         <RadioButton
             android:id="@+id/Division"
             android:layout_width="wrap_content"
@@ -99,6 +111,7 @@
             android:text="Division"
             android:textSize="16sp" />
 
+        <!-- Subtraction button -->
         <RadioButton
             android:id="@+id/Subtraction"
             android:layout_width="wrap_content"
@@ -108,6 +121,7 @@
 
     </RadioGroup>
 
+    <!-- Text View that shows the text "Number of Questions -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,6 +132,7 @@
         app:layout_constraintLeft_toLeftOf="@id/left_margin_activity_main"
         app:layout_constraintTop_toTopOf="@+id/bottom_of_buttons" />
 
+    <!-- Linear layout for the user to add or minus the number of questions and the text to show the numbers chosen -->
     <LinearLayout
         android:id="@+id/numQuestions"
         android:layout_width="wrap_content"
@@ -129,6 +144,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bottom_of_numQuestion">
 
+        <!-- Button for decreasing the number of questions chosen -->
         <Button
             android:id="@+id/Minus"
             android:layout_width="wrap_content"
@@ -138,6 +154,7 @@
             android:textSize="36sp"
             android:background="@android:color/transparent"/>
 
+        <!-- Text View for the number of questions chosen -->
         <TextView
             android:id="@+id/textViewCount"
             android:layout_width="wrap_content"
@@ -145,6 +162,7 @@
             android:text="0"
             android:textSize="30sp" />
 
+        <!-- Button for increasing the number of questions chosen -->
         <Button
             android:id="@+id/Plus"
             android:layout_width="wrap_content"
@@ -156,6 +174,7 @@
 
     </LinearLayout>
 
+    <!-- Button for starting the questions which will make the user move to the questionsScreen -->
     <RadioButton
         android:id="@+id/Start"
         android:layout_width="match_parent"
@@ -170,6 +189,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bottom_of_plusMinus" />
 
+    <!-- Bottom of picture horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom_of_picture"
         android:layout_width="wrap_content"
@@ -177,6 +197,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.28" />
 
+    <!-- Middle of page vertical constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/middle_of_page"
         android:layout_width="wrap_content"
@@ -184,6 +205,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
+    <!-- Bottom of select text horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom_of_selects"
         android:layout_width="wrap_content"
@@ -191,6 +213,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.31" />
 
+    <!-- Bottom of select button horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom_of_buttons"
         android:layout_width="wrap_content"
@@ -198,6 +221,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.54" />
 
+    <!-- Bottom of numQuestion text horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom_of_numQuestion"
         android:layout_width="wrap_content"
@@ -205,6 +229,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.64" />
 
+    <!-- Bottom of adding or subtracting number of questions horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom_of_plusMinus"
         android:layout_width="wrap_content"
@@ -212,6 +237,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.75" />
 
+    <!-- Left margin horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/left_margin_activity_main"
         android:layout_width="wrap_content"
