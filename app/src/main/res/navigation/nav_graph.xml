@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstScreen">
+
+    <fragment
+        android:id="@+id/firstScreen"
+        android:name="com.example.arithmetic.firstScreen"
+        android:label="fragment_first_screen"
+        android:layout="@layout/fragment_first_screen">
+        <action
+            android:id="@+id/action_firstScreen_to_questionsScreen"
+            app:destination="@id/questionsScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/questionsScreen"
+        android:name="com.example.arithmetic.questionsScreen"
+        android:label="fragment_questions_screen"
+        android:layout="@layout/fragment_questions_screen">
+        <action
+            android:id="@+id/action_questionsScreen_to_finishScreen"
+            app:destination="@id/finishScreen" />
+        <argument
+            android:name="difficulty"
+            app:argType="string" />
+        <argument
+            android:name="operation"
+            app:argType="string" />
+        <argument
+            android:name="numQuestions"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/finishScreen"
+        android:name="com.example.arithmetic.finishScreen"
+        android:label="fragment_finish_screen"
+        android:layout="@layout/fragment_finish_screen">
+        <argument
+            android:name="numCorrectAnswers"
+            app:argType="integer" />
+        <argument
+            android:name="numQuestions"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_finishScreen_to_firstScreen"
+            app:destination="@id/firstScreen" />
+    </fragment>
+
+</navigation>

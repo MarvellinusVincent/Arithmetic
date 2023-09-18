@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e2e2e2"
+    tools:context=".questionsScreen">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What is..."
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_of_whatIs"
+        app:layout_constraintLeft_toLeftOf="@id/left_of_margin" />
+
+    <TextView
+        android:id="@+id/firstNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        app:layout_constraintLeft_toLeftOf="@+id/left_of_margin"
+        app:layout_constraintTop_toTopOf="@id/bottom_of_whatIs"
+        app:layout_constraintBottom_toTopOf="@id/bottom_of_question"/>
+
+    <TextView
+        android:id="@+id/Operation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:text=""
+        app:layout_constraintTop_toTopOf="@id/bottom_of_whatIs"
+        app:layout_constraintBottom_toTopOf="@id/bottom_of_question"
+        app:layout_constraintLeft_toLeftOf="@id/left_of_operation"
+        app:layout_constraintRight_toLeftOf="@id/right_of_operation"/>
+
+    <TextView
+        android:id="@+id/secondNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:text=""
+        app:layout_constraintTop_toBottomOf="@id/bottom_of_whatIs"
+        app:layout_constraintRight_toLeftOf="@id/right_of_margin"
+        app:layout_constraintBottom_toTopOf="@id/bottom_of_question"/>
+
+    <EditText
+        android:id="@+id/UserText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Your answer..."
+        android:textColor="#808080"
+        android:textSize="50sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@id/bottom_of_yourAnswer"
+        app:layout_constraintLeft_toLeftOf="@id/left_of_Done"
+        app:layout_constraintRight_toRightOf="@id/right_of_Done" />
+
+    <RadioButton
+        android:id="@+id/Done"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/start_background"
+        android:button="@null"
+        android:text="DONE"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_of_Done"
+        app:layout_constraintLeft_toLeftOf="@id/left_of_Done"
+        app:layout_constraintRight_toRightOf="@id/right_of_Done"
+        app:layout_constraintTop_toTopOf="@+id/bottom_of_yourAnswer" />
+
+    <ImageView
+        android:id="@+id/secondPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bottom_of_Done"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </ImageView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_of_whatIs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.23" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_of_Done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_of_Done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_of_Done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.70" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_of_yourAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.62" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_of_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_of_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_of_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_of_operation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_of_operation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
