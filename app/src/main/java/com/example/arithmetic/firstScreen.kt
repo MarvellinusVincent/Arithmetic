@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import com.squareup.picasso.Picasso
 
@@ -55,6 +56,38 @@ class firstScreen : Fragment() {
         Picasso.get()
             .load(imageUrl)
             .into(imageView)
+
+        /**
+         * Load correctNumberOfAnswers
+         */
+        val numCorrectAnswers = try{
+            firstScreenArgs.fromBundle(requireArguments()).numCorrectAnswers
+        } catch (e: Exception) {
+            ""
+        }
+        val numQuestionsPrevious = try{
+            firstScreenArgs.fromBundle(requireArguments()).numQuestionsPrevious
+        } catch (e: Exception) {
+            ""
+        }
+        val operandPrevious = try{
+            firstScreenArgs.fromBundle(requireArguments()).previousOperation
+        } catch (e: Exception) {
+            ""
+        }
+        if (numCorrectAnswers != "" && numQuestionsPrevious != "" && operandPrevious != "") {
+            val percentage = numCorrectAnswers.toDouble() / numQuestionsPrevious.toDouble() * 100.0
+            val showUser = view.findViewById<TextView>(R.id.totalCorrectTextView)
+            if (percentage < 80) {
+                showUser.text =
+                    "You got $numCorrectAnswers out of $numQuestionsPrevious in $operandPrevious. You need to practice more!"
+                showUser.setTextColor(resources.getColor(android.R.color.holo_red_light))
+            } else {
+                showUser.text =
+                    "You got $numCorrectAnswers out of $numQuestionsPrevious in $operandPrevious. Good work!"
+                showUser.setTextColor(ContextCompat.getColor(requireContext(), R.color.grayShade))
+            }
+        }
 
         /**
          * Define click listeners for buttons

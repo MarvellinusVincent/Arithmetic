@@ -14,34 +14,46 @@
         android:id="@+id/firstPicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_of_picture"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_of_picture"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintRight_toRightOf="parent">
 
     </ImageView>
 
+    <TextView
+        android:id="@+id/totalCorrectTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bottom_of_picture"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
     <!-- Shows the select difficulty text -->
     <TextView
+        android:id="@+id/selectDifficulty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select difficulty:"
         android:textColor="#808080"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_of_selects"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottom_of_picture" />
+        app:layout_constraintTop_toBottomOf="@+id/totalCorrectTextView"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <!-- Shows the select operation text -->
     <TextView
+        android:id="@+id/selectOperation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select operation:"
         android:textColor="#808080"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_of_selects"
-        app:layout_constraintLeft_toLeftOf="@+id/middle_of_page"
-        app:layout_constraintTop_toTopOf="@+id/bottom_of_picture" />
+        app:layout_constraintTop_toBottomOf="@+id/totalCorrectTextView"
+        app:layout_constraintLeft_toLeftOf="@+id/middle_of_page" />
 
     <!-- Group for the buttons for the difficulty choosing -->
     <RadioGroup
@@ -50,7 +62,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottom_of_selects">
+        app:layout_constraintTop_toBottomOf="@+id/selectDifficulty">
 
         <!-- Easy button -->
         <RadioButton
@@ -85,7 +97,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="@+id/middle_of_page"
-        app:layout_constraintTop_toTopOf="@+id/bottom_of_selects">
+        app:layout_constraintTop_toBottomOf="@+id/selectDifficulty">
 
         <!-- Addition button -->
         <RadioButton
@@ -123,36 +135,36 @@
 
     <!-- Text View that shows the text "Number of Questions -->
     <TextView
+        android:id="@+id/numberOfQuestionsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Number of Questions"
         android:textColor="#808080"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_of_numQuestion"
         app:layout_constraintLeft_toLeftOf="@id/left_margin_activity_main"
-        app:layout_constraintTop_toTopOf="@+id/bottom_of_buttons" />
+        app:layout_constraintTop_toBottomOf="@+id/Operation" />
 
     <!-- Linear layout for the user to add or minus the number of questions and the text to show the numbers chosen -->
     <LinearLayout
         android:id="@+id/numQuestions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:button="@null"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_of_plusMinus"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottom_of_numQuestion">
+        app:layout_constraintTop_toBottomOf="@+id/numberOfQuestionsText">
 
         <!-- Button for decreasing the number of questions chosen -->
         <Button
             android:id="@+id/Minus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
             android:text="-"
             android:textColor="#808080"
-            android:textSize="36sp"
-            android:background="@android:color/transparent"/>
+            android:textSize="36sp" />
 
         <!-- Text View for the number of questions chosen -->
         <TextView
@@ -167,10 +179,10 @@
             android:id="@+id/Plus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
             android:text="+"
             android:textColor="#808080"
-            android:textSize="36sp"
-            android:background="@android:color/transparent"/>
+            android:textSize="36sp" />
 
     </LinearLayout>
 
@@ -179,6 +191,7 @@
         android:id="@+id/Start"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/start_background"
         android:button="@null"
         android:text="START"
@@ -187,7 +200,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottom_of_plusMinus" />
+        app:layout_constraintTop_toBottomOf="@+id/numQuestions" />
 
     <!-- Bottom of picture horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline
@@ -204,38 +217,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
-
-    <!-- Bottom of select text horizontal constraint -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/bottom_of_selects"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.31" />
-
-    <!-- Bottom of select button horizontal constraint -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/bottom_of_buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.54" />
-
-    <!-- Bottom of numQuestion text horizontal constraint -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/bottom_of_numQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.64" />
-
-    <!-- Bottom of adding or subtracting number of questions horizontal constraint -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/bottom_of_plusMinus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
 
     <!-- Left margin horizontal constraint -->
     <androidx.constraintlayout.widget.Guideline

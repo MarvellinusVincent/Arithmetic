@@ -12,6 +12,8 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import com.squareup.picasso.Picasso
 import kotlin.random.Random
+import android.widget.Toast
+import android.media.MediaPlayer
 
 /**
  * A simple [Fragment] subclass.
@@ -42,6 +44,10 @@ class questionsScreen : Fragment() {
         Picasso.get()
             .load(imageUrl)
             .into(imageView)
+
+        val correctSound = MediaPlayer.create(context, R.raw.correct)
+        val wrongSound = MediaPlayer.create(context, R.raw.wrong)
+
 
         /**
          * Retrieve arguments from the navigation
@@ -82,7 +88,12 @@ class questionsScreen : Fragment() {
                 val correctAns = correctAnswer(firstNumText, operandText, secondNumText)
                 val userAnswerText = userAnswer.text.toString().trim().toInt()
                 if (correctAns == userAnswerText) {
+                    correctSound.start()
+                    showToast("Correct. Good work!")
                     numCorrectAnswers ++
+                } else {
+                    wrongSound.start()
+                    showToast("Wrong")
                 }
 
                 /**
@@ -99,13 +110,18 @@ class questionsScreen : Fragment() {
                 val correctAns = correctAnswer(firstNumText, operandText, secondNumText)
                 val userAnswerText = userAnswer.text.toString().trim().toInt()
                 if (correctAns == userAnswerText) {
+                    correctSound.start()
+                    showToast("Correct. Good work!")
                     numCorrectAnswers ++
+                } else {
+                    wrongSound.start()
+                    showToast("Wrong")
                 }
 
                 /**
-                 * Navigate to the finish screen with the results
+                 * Navigate to the first screen with the results
                  */
-                val action = questionsScreenDirections.actionQuestionsScreenToFinishScreen(numCorrectAnswers, numQuestions)
+                val action = questionsScreenDirections.actionQuestionsScreenToFirstScreen(numCorrectAnswers.toString(), numQuestions.toString(), operation)
                 view.findNavController().navigate(action)
             }
         }
@@ -152,5 +168,8 @@ class questionsScreen : Fragment() {
             "/" -> num1 / num2
             else -> 0
         }
+    }
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }

@@ -13,6 +13,15 @@
         <action
             android:id="@+id/action_firstScreen_to_questionsScreen"
             app:destination="@id/questionsScreen" />
+        <argument
+            android:name="numCorrectAnswers"
+            app:argType="string" />
+        <argument
+            android:name="numQuestionsPrevious"
+            app:argType="string" />
+        <argument
+            android:name="previousOperation"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -21,8 +30,8 @@
         android:label="fragment_questions_screen"
         android:layout="@layout/fragment_questions_screen">
         <action
-            android:id="@+id/action_questionsScreen_to_finishScreen"
-            app:destination="@id/finishScreen" />
+            android:id="@+id/action_questionsScreen_to_firstScreen"
+            app:destination="@id/firstScreen" />
         <argument
             android:name="difficulty"
             app:argType="string" />
@@ -32,22 +41,6 @@
         <argument
             android:name="numQuestions"
             app:argType="integer" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/finishScreen"
-        android:name="com.example.arithmetic.finishScreen"
-        android:label="fragment_finish_screen"
-        android:layout="@layout/fragment_finish_screen">
-        <argument
-            android:name="numCorrectAnswers"
-            app:argType="integer" />
-        <argument
-            android:name="numQuestions"
-            app:argType="integer" />
-        <action
-            android:id="@+id/action_finishScreen_to_firstScreen"
-            app:destination="@id/firstScreen" />
     </fragment>
 
 </navigation>
