@@ -21,6 +21,7 @@
 
     </ImageView>
 
+    <!-- Shows the total correct number of answers in percentage form -->
     <TextView
         android:id="@+id/totalCorrectTextView"
         android:layout_width="wrap_content"

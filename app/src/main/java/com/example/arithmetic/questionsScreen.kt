@@ -45,6 +45,9 @@ class questionsScreen : Fragment() {
             .load(imageUrl)
             .into(imageView)
 
+        /**
+         * Load the sounds using the Media Player liibrary
+         */
         val correctSound = MediaPlayer.create(context, R.raw.correct)
         val wrongSound = MediaPlayer.create(context, R.raw.wrong)
 
@@ -78,6 +81,7 @@ class questionsScreen : Fragment() {
          */
         val doneButton = view.findViewById<RadioButton>(R.id.Done)
         doneButton.setOnClickListener {
+
             /**
              * Check if we should move to the next page and also check if the user inputs anything
              */
@@ -87,6 +91,10 @@ class questionsScreen : Fragment() {
                 val secondNumText = secondNum.text.toString()
                 val correctAns = correctAnswer(firstNumText, operandText, secondNumText)
                 val userAnswerText = userAnswer.text.toString().trim().toInt()
+
+                /**
+                 * If statements to show toast message and sound
+                 */
                 if (correctAns == userAnswerText) {
                     correctSound.start()
                     showToast("Correct. Good work!")
@@ -109,6 +117,10 @@ class questionsScreen : Fragment() {
                 val secondNumText = secondNum.text.toString()
                 val correctAns = correctAnswer(firstNumText, operandText, secondNumText)
                 val userAnswerText = userAnswer.text.toString().trim().toInt()
+
+                /**
+                 * If statements to show toast message and sound
+                 */
                 if (correctAns == userAnswerText) {
                     correctSound.start()
                     showToast("Correct. Good work!")
@@ -169,6 +181,10 @@ class questionsScreen : Fragment() {
             else -> 0
         }
     }
+
+    /**
+     * Function for display toast message
+     */
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }

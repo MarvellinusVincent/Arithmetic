@@ -58,7 +58,7 @@ class firstScreen : Fragment() {
             .into(imageView)
 
         /**
-         * Load correctNumberOfAnswers
+         * Load correctNumberOfAnswers, previous number of questions, and the previous operation
          */
         val numCorrectAnswers = try{
             firstScreenArgs.fromBundle(requireArguments()).numCorrectAnswers
