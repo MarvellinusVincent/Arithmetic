@@ -16,6 +16,9 @@ The following **required** functionality is completed:
 * [x] User's correct answers are counted
 * [x] User can view their score after all questions are answered
 * [x] User can restart the app
+* [x] User will get different prompts after all questions are answered with different colored texts to differentiate if they passed over 80%
+* [x] User will get a message after answering question saying whether or not they got their answer right
+* [x] User will get custom sounds for each question they answer. One for getting it right and one for gettin git wrong 
 
 The following **extensions** are implemented:
 
@@ -25,7 +28,7 @@ The following **extensions** are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='walkthrough.gif' title='Video Walkthrough' width='50%' alt='Video Walkthrough' />
+<img src='Video-Walkthrough-Project-4.gif' title='Video-Walkthrough-Project-4' width='50%' alt='Video-Walkthrough-Project-4' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -34,8 +37,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 SafeArgs was challenging as I did not fully understand it
 At first I didn't use fragments which made it very confusing
 Did not know if answers should be in 2 decimal places or as an integer but I decided to just use integer at the end
-Everything else went smoothly
-
+Everything else went smoothly for project 4
 ## License
 
     Copyright [2023] [Marvellinus Vincent]
